@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://cdn-icons-png.freepik.com/512/7835/7835563.png" type="image/x-icon" />
+  <title>BaZaarNow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div style="display: flex; align-items: center;">
+      <img src="https://cdn-icons-png.freepik.com/512/7835/7835563.png" style="height: 3rem;" type="image/x-icon" />
+      <h1 class="header__title">BaZaarNow</h1>
+  </div>
+    
+    <nav class="nav" style="margin: 0; padding: 0; ">
+      <div class="nav__actions">
+
+        <button id="productsTab" class="nav__btn hidden">🛒 Products</button>
+        <button id="cartIcon" class="nav__btn hidden">🛍️ Cart</button>
+        <button id="orderIcon" class="nav__btn hidden">📦 Orders</button>
+
+        <button id="showLoginBtn" class="nav__btn">Login</button>
+        <button id="showRegisterBtn" class="nav__btn">Register</button>
+        <button id="logoutBtn" class="nav__btn hidden">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <!-- === Auth Form === -->
+    <section id="authFormContainer" class="form-container">
+      <h2 id="formTitle">Login</h2>
+      <form id="authForm">
+        <div class="form-group">
+          <label for="email">Username</label>
+          <input type="text" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <div class="form-group">
+          <label for="role">Select Role</label>
+          <select id="role" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit" id="submitBtn">Login</button>
+        <p id="authMessage" class="form__message"></p>
+      </form>
+    </section>
+
+    <!-- === Product Section === -->
+    <section id="productSection" class="product-section hidden">
+      <h2 class="product-section__title">Products</h2>
+
+      <!-- Admin Product Form -->
+      <div id="adminPanel" class="admin-panel hidden">
+        <h3 class="admin-panel__title">Add Product</h3>
+        <form id="addProductForm">
+          <div class="form-group">
+            <label for="productName">Name</label>
+            <input type="text" id="productName" required />
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Price</label>
+            <input type="number" id="productPrice" required />
+          </div>
+          <div class="form-group">
+            <label for="productImage">Image URL</label>
+            <input type="url" id="productImage" required />
+          </div>
+          <button type="submit">Add Product</button>
+          <p id="addProductMessage" class="form__message"></p>
+        </form>
+
+        <!-- Admin Edit Form -->
+        <div id="editProductFormContainer" class="admin-panel hidden"></div>
+      </div>
+
+      <!-- Product Listing + Pagination -->
+      <div id="productList" class="product-list"></div>
+      <div id="paginationControls" class="pagination"></div>
+    </section>
+
+    <!-- === Cart Section === -->
+    <section id="cartSection" class="cart-section hidden">
+      <h2>Your Cart</h2>
+      <ul id="cartList"></ul>
+      <div id="cartTotal" class="cart-total-display"></div>
+      <button id="payNowBtn">💳 Pay Now</button>
+    </section>
+
+    <!-- === Orders Section === -->
+    <section id="orderSection" class="order-section hidden">
+      <h2>Order History</h2>
+      <ul id="orderList"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
