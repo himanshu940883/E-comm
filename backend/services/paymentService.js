@@ -1,3 +1,0 @@
-exports.getPaymentStatus = () => {
-  return 'Success';
-};
